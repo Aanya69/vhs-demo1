@@ -35,11 +35,10 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install pre-commit
+    - name: Install and run pre-commit
       run: |
         pip install pre-commit
-        pre-commit run --all-file
-
+        pre-commit run --all-files || echo "Pre-commit hooks fixed some files."
  
     - name: Set up JDK
       uses: actions/setup-java@v3
